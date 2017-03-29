@@ -33,4 +33,5 @@ module.exports = {
     //Automatically resolve certain extensions.
     extensions: ['.js', '.jsx', '.json'],
   }, //end of resolve
+  devtool: 'cheap-module-eval-source-map'
 };//end of module.exports
