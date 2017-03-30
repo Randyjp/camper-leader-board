@@ -5,7 +5,6 @@ export class CamperList extends React.Component {
   render() {
     var {campers} = this.props;
     var renderCampersTable = () => {
-
       if (campers.length ===0 ){
         // TODO: make a nice empty placeholder
         return (

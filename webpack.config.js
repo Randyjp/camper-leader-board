@@ -19,7 +19,7 @@ module.exports = {
         exclude: [/node_modules/],
         use: [{
           loader: 'babel-loader',
-          options: {presets: ['react','es2015']}
+          options: {presets: ['react','es2015', 'stage-0']}
         }],
       },
     ],
@@ -28,6 +28,7 @@ module.exports = {
     //Tell webpack what directories should be searched when resolving modules.
     modules: [
       path.join(__dirname, 'app/components'),
+      path.join(__dirname, 'app/api'),
       'node_modules',
     ],
     //Automatically resolve certain extensions.
