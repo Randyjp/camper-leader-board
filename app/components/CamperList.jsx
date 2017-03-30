@@ -20,13 +20,17 @@ export class CamperList extends React.Component {
 
       return (
         <table>
-        <tr>
-          <th>Avatar</th>
-          <th>Name</th>
-          <th>Points in past 30 days</th>
-          <th>All time Points</th>
-        </tr>
-          {finalCampers}
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Name</th>
+              <th>Points in past 30 days</th>
+              <th>All time Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {finalCampers}
+          </tbody>
         </table>
       );
 
