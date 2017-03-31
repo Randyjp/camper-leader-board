@@ -1,4 +1,5 @@
 var webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = null;
 
 module.exports = function (config) {
   config.set({

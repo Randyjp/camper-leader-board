@@ -2,6 +2,7 @@ import React from 'react';
 
 import CamperList from 'CamperList';
 import CamperAPI from 'CamperAPI';
+import Sorter from 'Sorter';
 
 export class Board extends React.Component {
   constructor (props) {
@@ -16,7 +17,7 @@ export class Board extends React.Component {
   }
 
   getCampers (type = "recent") {
-    CamperAPI.getCampers('recent').then((data) => {
+    CamperAPI.getCampers(type).then((data) => {
       this.setState({
         camperArray: data
       });
@@ -31,6 +32,7 @@ export class Board extends React.Component {
     return (
       <div>
         <h1>Leader Board</h1>
+        <Sorter apiCall={this}/>
         <CamperList campers={camperArray}/>
       </div>
     );
