@@ -34,5 +34,11 @@ module.exports = {
     //Automatically resolve certain extensions.
     extensions: ['.js', '.jsx', '.json'],
   }, //end of resolve
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ],
   devtool: 'cheap-module-eval-source-map'
 };//end of module.exports
