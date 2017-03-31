@@ -1,4 +1,5 @@
 import React from 'react';
+import Board from 'Board';
 
 export class Sorter extends React.Component {
   constructor (props) {
@@ -18,5 +19,9 @@ export class Sorter extends React.Component {
     );
   }
 }
+
+Sorter.propTypes = {
+  apiCall: React.PropTypes.object.isRequired
+};
 
 export default Sorter;

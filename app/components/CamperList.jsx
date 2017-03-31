@@ -44,4 +44,8 @@ export class CamperList extends React.Component {
   }
 }
 
+CamperList.propTypes = {
+  campers: React.PropTypes.array.isRequired
+};
+
 export default CamperList;

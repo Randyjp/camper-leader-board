@@ -15,4 +15,12 @@ export class Camper extends React.Component {
   }
 }
 
+Camper.propTypes = {
+  username: React.PropTypes.string.isRequired,
+  img: React.PropTypes.string.isRequired,
+  alltime: React.PropTypes.number.isRequired,
+  recent: React.PropTypes.number.isRequired,
+  lastUpdate: React.PropTypes.string
+};
+
 export default Camper;
