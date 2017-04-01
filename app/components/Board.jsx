@@ -27,7 +27,7 @@ export class Board extends React.Component {
   }
 
   render() {
-    var {camperArray} = this.state;
+    const {camperArray} = this.state;
 
     return (
       <div>

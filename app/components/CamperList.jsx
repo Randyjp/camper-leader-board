@@ -3,8 +3,8 @@ import Camper from 'Camper';
 
 export class CamperList extends React.Component {
   render() {
-    var {campers} = this.props;
-    var renderCampersTable = () => {
+    const {campers} = this.props;
+    const renderCampersTable = () => {
       if (campers.length ===0 ){
         // TODO: make a nice empty placeholder
         return (

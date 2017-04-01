@@ -7,7 +7,7 @@ export class Sorter extends React.Component {
     this.handleValueChange = this.handleValueChange.bind(this);
   }
   handleValueChange (event) {
-    var {apiCall} = this.props;
+    const {apiCall} = this.props;
     apiCall.getCampers(this.type.value);
   }
   render () {
