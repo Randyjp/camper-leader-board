@@ -10,4 +10,9 @@ describe('Board', () => {
   it('should exist', () => {
     expect(Board).toExist();
   });
+
+  it('should start with empy camperArray', () => {
+    let board = TestUtils.renderIntoDocument(<Board/>);
+    expect(board.state.camperArray.length).toEqual(0);
+  });
 });
