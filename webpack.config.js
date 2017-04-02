@@ -5,7 +5,14 @@ module.exports = {
   //where to start the app
   context: path.resolve(__dirname, './app'),
   entry: {
-    app: path.join(__dirname, 'app/app.jsx'),
+    app: [
+      'script-loader!jquery/dist/jquery.js',
+      'script-loader!foundation-sites/dist/js/foundation.js',
+      path.join(__dirname, 'app/app.jsx'),
+    ]
+  },
+  externals: {
+    jquery: 'jQuery'
   },
   output: {
     path: path.resolve(__dirname, './public'),
@@ -19,8 +26,28 @@ module.exports = {
         exclude: [/node_modules/],
         use: [{
           loader: 'babel-loader',
-          options: {presets: ['react','es2015', 'stage-0']}
+          options: {presets: ['react','es2015']}
         }],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader", // compiles Sass to CSS
+            options: {
+              includePaths: [
+                path.resolve(__dirname, './app/styles'),
+                path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
+              ]
+            }
+          }
+        ],
       },
     ],
   },//end of modules
@@ -33,6 +60,9 @@ module.exports = {
     ],
     //Automatically resolve certain extensions.
     extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      applicationStyles: path.join(__dirname, 'app/styles/app.scss'),
+    }
   }, //end of resolve
   plugins: [
     new webpack.ProvidePlugin({
