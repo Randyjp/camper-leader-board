@@ -10,7 +10,7 @@ $(document).foundation();
 // $(document).foundation(); //fire-up foundation
 
 //load app costum css
-+require('applicationStyles');
+require('applicationStyles');
 
 ReactDOM.render(
 	<Board/>,
