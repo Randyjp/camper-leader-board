@@ -13,6 +13,7 @@ export class Sorter extends React.Component {
   render () {
     return (
       <select onChange={this.handleValueChange} ref={(select) => this.type = select}>
+        <option value='' disabled selected>Select a sorting option</option>
         <option value='recent'>Points in past 30 days</option>
         <option value='alltime'>All time points</option>
       </select>

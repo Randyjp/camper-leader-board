@@ -16,7 +16,7 @@ export class Board extends React.Component {
     this.getCampers();
   }
 
-  getCampers (type = "recent") {
+  getCampers (type) {
     CamperAPI.getCampers(type).then((data) => {
       this.setState({
         camperArray: data
@@ -31,9 +31,15 @@ export class Board extends React.Component {
 
     return (
       <div>
-        <h1>Leader Board</h1>
-        <Sorter apiCall={this}/>
-        <CamperList campers={camperArray}/>
+        <h1 className="page-title">Leader Board</h1>
+        <div className='row'>
+          <div className='column small-centered small-11 medium-10 large-9'>
+            <div className='container'>
+              <Sorter apiCall={this}/>
+              <CamperList campers={camperArray}/>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

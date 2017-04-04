@@ -16,10 +16,13 @@ CamperList.propTypes = {
 };
 
 const renderCampersTable = (campers) => {
-  if (campers.length ===0 ){
+  if (campers.length === 0){
     // TODO: make a nice empty placeholder
     return (
-      <p>nothing here</p>
+      <div className="callout warning">
+        <h5>No campers at the moment</h5>
+        <p>Please select one of the options on top to get some useful information.</p>
+      </div>
     );
   }
 
@@ -30,10 +33,10 @@ const renderCampersTable = (campers) => {
   });
 
   return (
-    <table>
+    <table className='hover'>
       <thead>
         <tr>
-          <th>Avatar</th>
+          <th></th>
           <th>Name</th>
           <th>Points in past 30 days</th>
           <th>All time Points</th>
