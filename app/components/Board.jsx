@@ -3,12 +3,14 @@ import React from 'react';
 import CamperList from 'CamperList';
 import CamperAPI from 'CamperAPI';
 import Sorter from 'Sorter';
+import Loading from 'Loading';
 
 export class Board extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      camperArray: []
+      camperArray: [],
+      isLoading: false
     }
   }
 
@@ -17,17 +19,26 @@ export class Board extends React.Component {
   }
 
   getCampers (type) {
+    if (!type) return;
+    
+    this.setState({
+      isLoading: true
+    });
     CamperAPI.getCampers(type).then((data) => {
       this.setState({
-        camperArray: data
+        camperArray: data,
+        isLoading: false
       });
     }, (e)=> {
-      console.log(e);
+      this.setState({
+        camperArray: [],
+        isLoading: false
+      });
     });
   }
 
   render() {
-    const {camperArray} = this.state;
+    const {camperArray, isLoading} = this.state;
 
     return (
       <div>
@@ -36,6 +47,7 @@ export class Board extends React.Component {
           <div className='column small-centered small-11 medium-10 large-9'>
             <div className='container'>
               <Sorter apiCall={this}/>
+              <Loading isLoading={isLoading}/>
               <CamperList campers={camperArray}/>
             </div>
           </div>

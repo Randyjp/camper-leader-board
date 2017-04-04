@@ -3,7 +3,7 @@ import axios from 'axios';
 const CAMPERS_API_URL = 'https://fcctop100.herokuapp.com/api/fccusers/top/';
 
 module.exports = {
-  getCampers: (type) => {
+  getCampers: (type) => {    
     const encodedQueryType = encodeURIComponent(type);
     const requestURL = `${CAMPERS_API_URL}${type}`;
 

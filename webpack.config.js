@@ -30,7 +30,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           {
             loader: "style-loader" // creates style nodes from JS strings
