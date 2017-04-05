@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 
+//will be set to 'production on heroku'
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
   //where to start the app
   context: path.resolve(__dirname, './app'),
@@ -70,5 +73,5 @@ module.exports = {
       jQuery: 'jquery'
     })
   ],
-  devtool: 'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };//end of module.exports
